@@ -22,7 +22,7 @@ git add .
 
 git commit -m "Initial commit"
 
-git remote add origin git@github.com:edubkendo/demoApp.git
+git remote add origin git@github.com:username/demoApp.git
 
 git push -u origin master
 
@@ -126,6 +126,6 @@ I added a module to Tower.Controller that makes it possible to generate flash me
 
 Then re-start your server and attempt to create a post without a title. What you get should look like this:
 
-![Flash Message for Post Without Title](/screenshots/flashScreenshot.png "Flash Message")
+![Flash Message for Post Without Title](screenshots/flashScreenshot.png "Flash Message")
 
 For more information about using flash messages in Towerjs, please see [*Flash Messages on the Towerjs Wiki*](https://github.com/viatropos/tower/wiki/Flash-Messages) .
