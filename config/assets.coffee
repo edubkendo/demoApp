@@ -4,6 +4,10 @@ module.exports =
       "/app/client/config/application"
       "/config/routes"
       "/app/views/templates"
+      "/app/models/user"
+      "/app/client/controllers/usersController"
+      "/app/models/post"
+      "/app/client/controllers/postsController"
     ]
     
     lib: [
@@ -45,6 +49,8 @@ module.exports =
       "/vendor/javascripts/chai"
       "/vendor/javascripts/design.io"
       "/test/client"
+      "/test/models/userTest"
+      "/test/models/postTest"
     ]
   
   stylesheets:
