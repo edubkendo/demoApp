@@ -101,13 +101,31 @@ class App.Post extends Tower.Model
   @field "userId", type: "Integer"
 
   @belongsTo "user"
-  @validates "body", length: { maximum: 140, tooLong: "%{count} characters is the maximum allowed" }
+
+  @validates 'title', presence: true
 
   @timestamps()
+
 ```
 
-This will prevent posts longer than 140 characters from being created.  Remember to re-start your server and try it out yourself.
+This will prevent posts without a title from being created. We had to vary this a little bit from Hartl's tutorial because at present there is a bug causing length validations to function incorrectly. Remember to re-start your server and try it out yourself.
 
 **Adding the Flash
 
-I added a module to Tower.Controller that makes it possible to generate flash messages, as Hartl does in his tutorial.  Currently, the pull request is still being reviewed, though I believe it will be merged in sometime very soon.  Before you go to the trouble of 
+I added a module to Tower.Controller that makes it possible to generate flash messages, as Hartl does in his tutorial.  Currently, the pull request is still being reviewed, though I believe it will be merged in sometime very soon.  Before you go to the trouble of trying to do this last section, do a simple check to see if your version of Tower is supporting these Flash messages.  Check the directory demoApp/app/views/shared for the file _flash.coffee .  If Towerjs created this for you, then the following should work.  First, we have to modify the Posts Controller like we did the Users Controller earlier, so check the file for how to do that.  Then to add the flash, we set our create action to look like so:
+
+```coffeescript
+  create: ->
+    App.Post.create @params.post, (error, @post) =>
+      if (k for own k, message of @post.errors).length isnt 0
+        @flash 'error', message
+        @render "new"
+      else
+        @render "show"  
+```
+
+Then re-start your server and attempt to create a post without a title. What you get should look like this:
+
+![Flash Message for Post Without Title](/screenshots/flashScreenshot.png "Flash Message")
+
+For more information about using flash messages in Towerjs, please see [*Flash Messages on the Towerjs Wiki*](https://github.com/viatropos/tower/wiki/Flash-Messages) .

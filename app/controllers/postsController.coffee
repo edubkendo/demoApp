@@ -5,7 +5,7 @@ class App.PostsController extends App.ApplicationController
 
   index: ->
     App.Post.all (error, @posts) =>
-      @render "index"
+      @render "index" 
     
   new: ->
     @post = new App.Post
@@ -13,11 +13,11 @@ class App.PostsController extends App.ApplicationController
     
   create: ->
     App.Post.create @params.post, (error, @post) =>
-      console.log @post.errors
-      if error
-        @redirectTo "new"
+      if (k for own k, message of @post.errors).length isnt 0
+        @flash 'error', message
+        @render "new"
       else
-        @render 'show'
+        @render "show"  
     
   show:  ->
     App.Post.find @params.id, (error, @post) =>
