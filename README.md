@@ -9,6 +9,8 @@ and particularly, the [*Tower.js*](http://towerjs.org/) framework, which was mod
 
 See https://github.com/edubkendo/firstApp for how I worked through the first chapter of the book, which includes information on getting a Tower.js app running on [Heroku](http://www.heroku.com/).
 
+## Setup
+
 ```
 tower new demoApp
 
@@ -53,6 +55,8 @@ tower generate scaffold Post title:string body:text userId:integer belongsTo:use
 
 (Again, note that we specify the relationship here, within the generate command).
 
+## hasMany/belongsTo
+
 At this point we need to modify some files to get the relationships between the two resources working.  Because calls to the database are asynchronous in Node, we have to create callbacks in order to gain access to the resources, unlike in the Rails tutorial where it works slightly more simply.
 
 First, we edit the Users Controller in app/controllers/usersController.coffee.  After uncommenting the various actions, we need to change the generic variables being sent to the templates to match what the templates are actually using. Check carefully, make sure you change both the arguements and local variables to match what I have in my file. Also, in the create and update actions, after the user is created or changed, we need to 'render' the page instead of redirectTo, otherwise nothing will happen. Then, in the 'show' action we'll add a callback which will let us view posts that have been linked to the user.  Like so:
@@ -92,6 +96,8 @@ Re-start your server and visit your page again, make sure you've added at least 
 
 See http://stackoverflow.com/a/10759697/1200100 for more information on how the hasMany/belongsTo relationship works in Towerjs.
 
+## Validation
+
 To add validation to the post, open app/models/post.coffee and add the @validation like so:
 
 ```coffeescript
@@ -110,7 +116,7 @@ class App.Post extends Tower.Model
 
 This will prevent posts without a title from being created. We had to vary this a little bit from Hartl's tutorial because at present there is a bug causing length validations to function incorrectly. Remember to re-start your server and try it out yourself.
 
-**Adding the Flash
+## Adding the Flash
 
 I added a module to Tower.Controller that makes it possible to generate flash messages, as Hartl does in his tutorial.  Currently, the pull request is still being reviewed, though I believe it will be merged in sometime very soon.  Before you go to the trouble of trying to do this last section, do a simple check to see if your version of Tower is supporting these Flash messages.  Check the directory demoApp/app/views/shared for the file _flash.coffee .  If Towerjs created this for you, then the following should work.  First, we have to modify the Posts Controller like we did the Users Controller earlier, so check the file for how to do that.  Then to add the flash, we set our create action to look like so:
 
