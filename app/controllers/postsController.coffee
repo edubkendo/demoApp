@@ -13,6 +13,7 @@ class App.PostsController extends App.ApplicationController
     
   create: ->
     App.Post.create @params.post, (error, @post) =>
+      console.log @post.errors
       if error
         @redirectTo "new"
       else

@@ -3,15 +3,15 @@
   "private":                  true,
   "version":                  "0.0.1",
   "description":              "",
-  "homepage":                 "http://undefined.github.com/demoApp",
+  "homepage":                 "http://edubkendo.github.com/demoApp",
   "main":                     "./server.js",
-  "author":                   "undefined <undefined>",
+  "author":                   "edubkendo",
   "keywords": [
     "node"
   ],
   "maintainers": [{
-    "name":                   "undefined",
-    "email":                  "undefined"
+    "name":                   "edubkendo",
+    "email":                  "esw9999@gmail.com"
   }],
   "contributors": [
   
@@ -23,11 +23,11 @@
     }
   ],
   "bugs": {
-    "url":                    "https://github.com/undefined/demoApp/issues"
+    "url":                    "https://github.com/edubkendo/demoApp/issues"
   },
   "repository": {
     "type":                   "git",
-    "url":                    "https://github.com/undefined/demoApp.git"
+    "url":                    "https://github.com/edubkendo/demoApp.git"
   },
   "engines": {
     "node":                   ">= 0.4.0",
