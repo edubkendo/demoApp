@@ -1,0 +1,3 @@
+App.UserHelper =
+  userElements: ->
+    $(".users")

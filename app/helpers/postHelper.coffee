@@ -1,0 +1,3 @@
+App.PostHelper =
+  postElements: ->
+    $(".posts")
