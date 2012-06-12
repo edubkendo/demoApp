@@ -134,4 +134,4 @@ Then re-start your server and attempt to create a post without a title. What you
 
 ![Flash Message for Post Without Title](https://github.com/edubkendo/demoApp/raw/master/screenshots/flashScreenshot.png "Flash Message")
 
-For more information about using flash messages in Towerjs, please see [*Flash Messages on the Towerjs Wiki*](https://github.com/edubkendo/flashMessages/blob/master/flash.md) .
+For more information about using flash messages in Towerjs, please see [*Flash Messages on the Towerjs Wiki*](https://github.com/viatropos/tower-docs/blob/master/en/guides/controllers/flash.md) .
